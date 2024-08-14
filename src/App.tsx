@@ -6,7 +6,7 @@ import Catalog from './routes/Catalog'
 function App() {
   return (
     //<ProductDetails/>
-    <Catalog/>
+    <ProductDetails />
   );
 }
 
