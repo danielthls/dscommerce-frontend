@@ -1,7 +1,7 @@
 import "./styles.css";
 import computerImg from "../../assets/computer.png";
 import ProductCategory from "../ProductCategory";
-import { ProductDTO } from "../../models/Producto";
+import { ProductDTO } from "../../models/Product";
 
 type Props = {
   product: ProductDTO

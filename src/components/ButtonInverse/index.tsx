@@ -1,5 +1,9 @@
 import "./styles.css";
 
-export default function ButtonInverse() {
-  return <div className="dsc-btn dsc-btn-white">Início</div>;
+type Props = {
+  caption: string;
+}
+
+export default function ButtonInverse({ caption }: Props) {
+  return <div className="dsc-btn dsc-btn-white">{caption}</div>;
 }

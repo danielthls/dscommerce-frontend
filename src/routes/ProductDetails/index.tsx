@@ -2,7 +2,7 @@ import ProductDetailsCard from "../../components/ProductDetailsCard";
 import HeaderClient from "../../components/HeaderClient";
 import ButtonPrimary from "../../components/ButtonPrimary";
 import ButtonInverse from "../../components/ButtonInverse";
-import { ProductDTO } from "../../models/Producto";
+import { ProductDTO } from "../../models/Product";
 
 const product: ProductDTO = {
   id: 2,
@@ -34,8 +34,8 @@ export default function ProductDetails() {
         <section id="product-details-section" className="dsc-container">
           <ProductDetailsCard product={product} />
           <div className="dsc-btn-page-container">
-            <ButtonPrimary />
-            <ButtonInverse />
+            <ButtonPrimary caption="Finalizar pedido" />
+            <ButtonInverse caption="Continuar comprando" />
           </div>
         </section>
       </main>
