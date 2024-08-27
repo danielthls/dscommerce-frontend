@@ -10,10 +10,10 @@ import axios from 'axios'
 
 export default function Catalog() {
 
-  const [products, setProducts] = useState<ProductDTO[]>();
+  const [products, setProducts] = useState<ProductDTO[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/products?size=12")
+    productService.findAll()
       .then(response => {
         console.log(response.data.content)
         setProducts(response.data.content);
