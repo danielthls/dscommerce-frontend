@@ -6,13 +6,13 @@ import ButtonNextPage from '../../../components/ButtonNextPage'
 import * as productService from '../../../services/ProductService'
 import { ProductDTO } from '../../../models/Product'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 
 export default function Catalog() {
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
 
   useEffect(() => {
+
     productService.findAll()
       .then(response => {
         console.log(response.data.content)
