@@ -33,3 +33,7 @@ export function logout() {
 export function saveAcessToken(token: string) {
     accessTokenRepository.save(token);
 }
+
+export function getAccessToken() {
+    return accessTokenRepository.get();
+}
