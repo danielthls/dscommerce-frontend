@@ -23,8 +23,6 @@ export function loginRequest(loginData: CredentialsDTO) {
     }
 
     return requestBackend(config);
-
-    console.log(requestBody);
 }
 
 export function logout() {

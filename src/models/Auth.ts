@@ -7,6 +7,6 @@ export type RoleEnum = "ROLE_ADMIN" | "ROLE_CLIENT"
 
 export type AccessTokenPayloadDTO = {
     exp: number,
-    user_name: string,
+    username: string,
     authorities: RoleEnum[];
 };

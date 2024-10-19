@@ -16,6 +16,7 @@ import { history } from "./utils/history";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { AccessTokenPayloadDTO } from "./models/Auth";
 import { ContextToken } from "./utils/context-token";
+import Confirmation from "./routes/ClientHome/Confirmation";
 
 
 function App() {
@@ -40,8 +41,9 @@ function App() {
               <Route index element={<Catalog />} />
               <Route path="catalog" element={<Catalog />} />
               <Route path="product-details/:productId" element={<ProductDetails />} />
-              <Route path="cart" element={<Cart />} />
+              <Route path="cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
               <Route path="login" element={<Login />} />
+              <Route path="confirmation/:orderId" element={<PrivateRoute><Confirmation /></PrivateRoute>} />
             </Route>
             <Route path="/admin/" element={
               <PrivateRoute roles={['ROLE_ADMIN']}>
