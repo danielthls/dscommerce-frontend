@@ -50,9 +50,7 @@ export default function ProductDetails() {
             <ProductDetailsCard product={product} />
           }
           <div className="dsc-btn-page-container">
-            <div onClick={handleBuyClick}>
-              <ButtonPrimary caption="Comprar" />
-            </div>
+            <ButtonPrimary caption="Comprar" onClick={handleBuyClick} />
             <Link to={"/"}>
               <ButtonInverse caption="Início" />
             </Link>
