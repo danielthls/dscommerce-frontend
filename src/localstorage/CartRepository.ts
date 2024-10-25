@@ -15,7 +15,6 @@ export function get(): OrderDTO {
     obj.items.forEach(item => {
         cart.items.push(new OrderItemDTO(item.productId, item.quantity, item.name, item.price, item.imgUrl))
     });
-    console.log(cart);
     return cart;
 }
 

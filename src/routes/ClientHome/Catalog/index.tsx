@@ -25,7 +25,6 @@ export default function Catalog() {
   });
 
   useEffect(() => {
-    console.log("teste: ", hasAnyRoles(['ROLE_CLIENT']))
     productService.findPageRequest(queryParams.page, queryParams.name)
       .then(response => {
         const nextPage = response.data.content
@@ -41,7 +40,7 @@ export default function Catalog() {
 
   function handleNextPage() {
     setQueryParam({ ...queryParams, page: queryParams.page + 1 })
-    console.log(queryParams.page)
+
   }
 
   return (

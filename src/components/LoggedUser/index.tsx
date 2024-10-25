@@ -7,8 +7,6 @@ export default function LoggedUser() {
 
     const { contextTokenPayload, setContextTokenPayload } = useContext(ContextToken);
 
-    console.log(contextTokenPayload)
-
     function handleLogoutClick() {
         authService.logout();
         setContextTokenPayload(undefined);
