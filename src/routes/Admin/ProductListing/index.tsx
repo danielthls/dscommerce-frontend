@@ -95,8 +95,8 @@ export default function ProductListing() {
             <section id="product-listing-section" className="dsc-container">
                 <h2 className="dsc-section-title dsc-mb20">Cadastro de produtos</h2>
 
-                <div className="dsc-btn-page-container dsc-mb20">
-                    <ButtonInverse caption='Novo' onClick={handleNewProductClick} />
+                <div onClick={handleNewProductClick} className="dsc-btn-page-container dsc-mb20">
+                    <ButtonInverse caption='Novo' />
                 </div>
 
                 <SearchBar onSearch={handleSearch} />
