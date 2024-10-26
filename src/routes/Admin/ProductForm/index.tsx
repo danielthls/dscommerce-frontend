@@ -4,6 +4,7 @@ import * as forms from '../../../utils/forms';
 import * as productService from '../../../services/ProductService'
 import FormInput from '../../../components/FormInput';
 import { Link, useParams } from 'react-router-dom';
+import FormTextArea from '../../../components/FormTextArea';
 
 export default function ProductForm() {
 
@@ -18,6 +19,10 @@ export default function ProductForm() {
             name: "name",
             type: "text",
             placeholder: "Nome",
+            validation: function (value: string) {
+                return /^.{3,20}%/.test(value);
+            },
+            message: "Favor informar nome de 3 a 80 caracteres"
         },
         price: {
             value: "",
@@ -36,6 +41,18 @@ export default function ProductForm() {
             name: "imgUrl",
             type: "text",
             placeholder: "Imagem",
+        },
+        description: {
+            value: "",
+            id: "description",
+            name: "description",
+            type: "text",
+            placeholder: "Descrição",
+            validation: function (value: string) {
+                return /^.{10,80}%/.test(value);
+            },
+            message: "A descrição deve ter pelo menos 10 caracteres."
+
         }
     })
 
@@ -86,6 +103,14 @@ export default function ProductForm() {
                                     onTurnDirty={handleTurnDirty}
                                     onChange={handleInputChange}
                                 />
+                            </div>
+                            <div>
+                                <FormTextArea {...formData.description}
+                                    className="dsc-form-control dsc-textarea"
+                                    onTurnDirty={handleTurnDirty}
+                                    onChange={handleInputChange}
+                                />
+                                <div className='dsc-form-error'>{formData.description.message}</div>
                             </div>
 
                         </div>
