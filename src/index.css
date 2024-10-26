@@ -246,6 +246,14 @@ nav a {
   color: var(--dsc-color-font-placeholder);
 }
 
+.dsc-form-control[data-dirty="true"][data-invalid="true"] {
+  border: 1px solid var(--dsc-color-error)
+}
+
+.dsc-form-control[data-dirty="true"][data-invalid="true"]~div {
+  display: unset;
+}
+
 .dsc-input-error {
   border: 1px solid var(--dsc-color-error);
 }
@@ -254,6 +262,7 @@ nav a {
   color: var(--dsc-color-error);
   font-size: 12px;
   padding-left: 4px;
+  display: none;
 }
 
 .dsc-select:invalid {
