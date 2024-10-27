@@ -8,6 +8,7 @@ import { Link, useParams } from 'react-router-dom';
 import FormTextArea from '../../../components/FormTextArea';
 import { CategoryDTO } from '../../../models/Category';
 import FormSelect from '../../../components/FormSelect';
+import { selectStyles } from '../../../utils/select';
 
 export default function ProductForm() {
 
@@ -132,7 +133,8 @@ export default function ProductForm() {
                             <div>
                                 <FormSelect
                                     {...formData.categories}
-                                    className="dsc-form-control"
+                                    className="dsc-form-control dsc-form-select-container"
+                                    styles={selectStyles}
                                     options={categories}
                                     onChange={(obj: any) => {
                                         const newFormData = forms.updateAndValidate(formData, 'categories', obj)
