@@ -119,7 +119,11 @@ export default function ProductForm() {
         request
             .then(response => {
                 navigate('/admin/products')
-            });
+            })
+            .catch(error => {
+                const newInputs = forms.setBackEndErrors(formData, error.response.data.errors)
+                setFormData(newInputs)
+            })
 
     }
 

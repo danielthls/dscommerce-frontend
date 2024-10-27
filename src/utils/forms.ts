@@ -76,4 +76,12 @@ export function hasAnyInvalid(inputs: any): boolean {
     return false;
 }
 
-//className="dsc-btn dsc-btn-blue"
+export function setBackEndErrors(inputs: any, errors: any[]) {
+    const newInputs = { ...inputs };
+    errors.forEach(item => {
+        newInputs[item.fieldName].message = item.message;
+        newInputs[item.fieldName].dirty = 'true'
+        newInputs[item.fieldName].invalid = 'true'
+    })
+    return newInputs;
+}
