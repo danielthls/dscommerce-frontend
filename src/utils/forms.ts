@@ -40,3 +40,40 @@ export function toDirtyAndValidate(inputs: any, name: string) {
     const dirtyData = toDirty(inputs, name);
     return validate(dirtyData, name)
 }
+
+export function toDirtyAll(inputs: any) {
+    const newInputs: any = {};
+    for (var name in inputs) {
+        newInputs[name] = { ...inputs[name], dirty: 'true' }
+    }
+    return newInputs;
+}
+
+export function validateAll(inputs: any) {
+    const newInputs: any = {};
+    for (var name in inputs) {
+        if (inputs[name].validation) {
+            const isInvalid = !inputs[name].validation(inputs[name].value);
+            newInputs[name] = { ...inputs[name], invalid: isInvalid.toString() }
+        } else {
+            newInputs[name] = { ...newInputs[name] }
+        }
+    }
+    return newInputs;
+}
+
+export function dirtyAndValidateAll(inputs: any) {
+    return validateAll(toDirtyAll(inputs));
+}
+
+export function hasAnyInvalid(inputs: any): boolean {
+    for (var name in inputs) {
+        console.log(name)
+        if (inputs[name].dirty === 'true' && inputs[name].invalid === 'true') {
+            return true;
+        }
+    }
+    return false;
+}
+
+//className="dsc-btn dsc-btn-blue"
