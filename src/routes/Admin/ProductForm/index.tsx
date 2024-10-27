@@ -5,6 +5,7 @@ import * as productService from '../../../services/ProductService'
 import * as categoryService from '../../../services/CategoryService'
 import FormInput from '../../../components/FormInput';
 import { Link, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import FormTextArea from '../../../components/FormTextArea';
 import { CategoryDTO } from '../../../models/Category';
 import FormSelect from '../../../components/FormSelect';
@@ -13,6 +14,8 @@ import { selectStyles } from '../../../utils/select';
 export default function ProductForm() {
 
     const params = useParams();
+
+    const navigate = useNavigate();
 
     const [categories, setCategories] = useState<CategoryDTO[]>([])
 
@@ -55,7 +58,7 @@ export default function ProductForm() {
             type: "text",
             placeholder: "Descrição",
             validation: function (value: string) {
-                return /^.{10,80}$/.test(value);
+                return /^.{10,}$/.test(value);
             },
             message: "A descrição deve ter pelo menos 10 caracteres."
         },
@@ -103,6 +106,21 @@ export default function ProductForm() {
             setFormData(dataValidatedForm);
             return;
         }
+        const requestBody = forms.toValues(formData);
+
+        if (isEditing) {
+            requestBody.id = params.productId;
+        }
+
+        const request = isEditing
+            ? productService.updateRequest(requestBody)
+            : productService.insertRequest(requestBody)
+
+        request
+            .then(response => {
+                navigate('/admin/products')
+            });
+
     }
 
     return (

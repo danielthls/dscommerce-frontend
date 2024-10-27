@@ -1,10 +1,8 @@
 import './styles.css'
 import * as productService from '../../../services/ProductService'
 import editIcon from '../../../assets/edit.svg'
-import deleteIcon from '../../../assets/delete.svg'
-import computerImg from '../../../assets/computer.png'
+import deleteIcon from '../../../assets/delete.svg';
 import { useEffect, useState } from 'react';
-import { hasAnyRoles } from '../../../services/AuthService'
 import { ProductDTO } from '../../../models/Product'
 import SearchBar from '../../../components/SearchBar'
 import ButtonNextPage from '../../../components/ButtonNextPage'
